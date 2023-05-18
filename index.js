@@ -24,10 +24,33 @@ const addBookMark = () => {
         name: name
     };
 
+   
+
+
     savedBookMarks.push(newBookMark);
 
-    updateBookMarkList();
+    // updateBookMarkList();
 
     linkInput.value = '';
     nameInput.value = '';
+
+    renderBookmark();
 }
+
+button.addEventListener('click', addBookMark);
+
+const renderBookmark = () => {
+    const bookMarkList = document.querySelector('.bookMarkList');
+    
+    const bookMarkContainer = document.createElement('section');
+    bookMarkContainer.className = 'bookMarkContainer';
+    bookMarkList.appendChild(bookMarkContainer);
+
+    const bookMarkText = document.createElement('span');
+    bookMarkText.className = 'bookMarkText';
+    bookMarkText.innerText = savedBookMarks['name'];
+    bookMarkContainer.appendChild(bookMarkText);
+
+}
+
+
